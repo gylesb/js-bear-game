@@ -1,5 +1,5 @@
 {
-  "name": "obj",
+  "name": "super-galactic-age-calculator",
   "description": "",
   "main": "gulpfile.js",
   "license": "ISC",
@@ -17,6 +17,6 @@
     "materialize": "^0.100.2"
   },
   "authors": [
-    "Rafael Furry <rfurry@gmail.com>"
+    "Patrick Napper <patrick@patricknapper.com>"
   ]
 }

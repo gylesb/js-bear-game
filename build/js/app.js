@@ -9,38 +9,38 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Obj = exports.Obj = function () {
-  function Obj(number) {
-    _classCallCheck(this, Obj);
+var Calc = exports.Calc = function () {
+  function Calc(number) {
+    _classCallCheck(this, Calc);
 
     number = parseInt(number);
     this.number = number;
   }
 
-  _createClass(Obj, [{
+  _createClass(Calc, [{
     key: "func",
     value: function func() {
       return this.number += 1;
     }
   }]);
 
-  return Obj;
+  return Calc;
 }();
 
 },{}],2:[function(require,module,exports){
 'use strict';
 
-var _object = require('./../js/object.js');
+var _calculator = require('./../js/calculator.js');
 
 $(document).ready(function () {
   $('.btn').click(function (e) {
     e.preventDefault();
     var numberIn = $('#numberIn').val();
-    var obj = new _object.Obj(numberIn);
-    var numberOut = obj.func();
+    var calc = new _calculator.Calc(numberIn);
+    var numberOut = calc.func();
     console.log(numberIn, numberOut);
     $('#numberOut').text(numberOut);
   });
 });
 
-},{"./../js/object.js":1}]},{},[2]);
+},{"./../js/calculator.js":1}]},{},[2]);
