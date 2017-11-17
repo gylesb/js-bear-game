@@ -23,7 +23,20 @@ export class Calc {
     return age;
   }
 
+  MercuryAge(date) {
+    return Math.round(100*(this.EarthAge(date) / .24))/100;
+  }
+
+  VenusAge(date) {
+    return Math.round(100*(this.EarthAge(date) / .62))/100;
+  }
+
   MarsAge(date) {
     return Math.round(100*(this.EarthAge(date) / 1.88))/100;
   }
+
+  JupiterAge(date) {
+    return Math.round(100*(this.EarthAge(date) / 11.86))/100;
+  }
+
 }
