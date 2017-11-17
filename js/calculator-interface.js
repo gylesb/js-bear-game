@@ -13,11 +13,11 @@ $(document).ready(function () {
     let birthdate = $("input#userBirthdate").val();
     let calc = new Calc();
 
-    const earthAge = calc.yearAge(birthdate);
+    const earthAge = calc.earthAge(birthdate);
     let ageInSeconds = calc.DateToSeconds(birthdate);
 
 
-    $('#results-earth').append("<li>" + "Your age in Earth years = " + earthAge + "</li>");
-    $('#results-earth').append("<li>" + "Your years on Earth = " + ageInSeconds + "seconds" "</li>");
+    // $('#results-earth').append("<li>" + "Your age in Earth years = " + earthAge + "</li>");
+    // $('#results-earth').append("<li>" + "Your years on Earth = " + ageInSeconds + "seconds" "</li>");
   });
 });
