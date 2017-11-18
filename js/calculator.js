@@ -10,11 +10,9 @@ export class Calc {
     return this.EarthAge(date) * 31556952;
   }
 
-  // DatesDifference(dateOne, dateTwo) {
-  //   let dateOne = new Date(dateOne);
-  //   let dateTwo = new Date(dateTwo);
-  //   return (new Date(dateOne) - new Date(dateTwo)) / 1000;
-  // }
+  DatesDifference(dateOne, dateTwo) {
+    return (this.DateToSeconds(dateTwo)) - (this.DateToSeconds(dateOne)) / 1000;
+  }
 
   EarthAge(date) {
     let currentdate = new Date();
@@ -37,6 +35,16 @@ export class Calc {
 
   JupiterAge(date) {
     return Math.round(100*(this.EarthAge(date) / 11.86))/100;
+  }
+
+  LifeExpectancy(gender) {
+    let averageEarthLife = 70;
+    if (gender == "Male") {
+      return averageEarthLife -= 10;
+    } else if
+      (gender !== "Male") {
+      return averageEarthLife += 10;
+    }
   }
 
 }
