@@ -46,5 +46,4 @@ export class Calc {
       return averageEarthLife += 10;
     }
   }
-
 }

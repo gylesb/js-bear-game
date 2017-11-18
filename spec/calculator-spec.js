@@ -46,7 +46,4 @@ describe('Calc', function () {
     let calc = new Calc();
     expect(calc.LifeExpectancy("Male")).toEqual(60);
   });
-
-
-
 });
