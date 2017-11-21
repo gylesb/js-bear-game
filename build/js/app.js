@@ -40,22 +40,22 @@ var Calc = exports.Calc = function () {
   }, {
     key: "MercuryAge",
     value: function MercuryAge(date) {
-      return Math.round(100 * (this.EarthAge(date) / .24)) / 100;
+      return Math.round(this.EarthAge(date) / .24);
     }
   }, {
     key: "VenusAge",
     value: function VenusAge(date) {
-      return Math.round(100 * (this.EarthAge(date) / .62)) / 100;
+      return Math.round(this.EarthAge(date) / .62);
     }
   }, {
     key: "MarsAge",
     value: function MarsAge(date) {
-      return Math.round(100 * (this.EarthAge(date) / 1.88)) / 100;
+      return Math.round(this.EarthAge(date) / 1.88);
     }
   }, {
     key: "JupiterAge",
     value: function JupiterAge(date) {
-      return Math.round(100 * (this.EarthAge(date) / 11.86)) / 100;
+      return Math.round(this.EarthAge(date) / 11.86);
     }
   }, {
     key: "LifeExpectancy",
@@ -66,6 +66,26 @@ var Calc = exports.Calc = function () {
       } else if (gender !== "Male") {
         return averageEarthLife += 10;
       }
+    }
+  }, {
+    key: "LifeMercury",
+    value: function LifeMercury(gender) {
+      return Math.round(this.LifeExpectancy(gender) / 0.24);
+    }
+  }, {
+    key: "LifeVenus",
+    value: function LifeVenus(gender) {
+      return Math.round(this.LifeExpectancy(gender) / 0.62);
+    }
+  }, {
+    key: "LifeMars",
+    value: function LifeMars(gender) {
+      return Math.round(this.LifeExpectancy(gender) / 1.88);
+    }
+  }, {
+    key: "LifeJupiter",
+    value: function LifeJupiter(gender) {
+      return Math.round(this.LifeExpectancy(gender) / 11.86);
     }
   }]);
 
@@ -85,7 +105,8 @@ $(document).ready(function () {
     var calc = new _calculator.Calc();
 
     var AgeInSeconds = calc.AgeToSeconds(userAge);
-    $('#results-seconds').text();
+    console.log(AgeInSeconds);
+    $('#result-seconds').text();
   });
 
   $('#user-form').submit(function (event) {
@@ -95,13 +116,25 @@ $(document).ready(function () {
     var gender = $('input:radio[name=gender]:checked').val();
     var calc = new _calculator.Calc();
 
-    var EarthAge = calc.EarthAge(birthdate, gender);
-    var MarsAge = calc.MarsAge(birthdate, gender);
-    var MercuryAge = calc.MercuryAge(birthdate, gender);
-    var VenusAge = calc.VenusAge(birthdate, gender);
-    var JupiterAge = calc.JupiterAge(birthdate, gender);
+    // const EarthAge = calc.EarthAge(birthdate, gender);
+    // const MarsAge = calc.MarsAge(birthdate, gender);
+    // const MercuryAge = calc.MercuryAge(birthdate, gender);
+    // const VenusAge = calc.VenusAge(birthdate, gender);
+    // const JupiterAge = calc.JupiterAge(birthdate, gender);
 
-    $('#results-earth').text();
+    $('#EarthAge').text(calc.EarthAge(birthdate));
+    console.log(EarthAge);
+    $('#MercuryAge').text(calc.MercuryAge(birthdate));
+    console.log(MercuryAge);
+    $('#VenusAge').text(calc.VenusAge(birthdate));
+    $('#MarsAge').text(calc.MarsAge(birthdate));
+    $('#JupiterAge').text(calc.JupiterAge(birthdate));
+
+    $('#LifeExpectancy').text(calc.LifeExpectancy(birthdate, gender));
+    $('#LifeMercury').text(calc.LifeMercury(birthdate, gender));
+    $('#LifeVenus').text(calc.LifeVenus(birthdate, gender));
+    $('#LifeMars').text(calc.LifeMars(birthdate, gender));
+    $('#LifeJupiter').text(calc.LifeJupiter(birthdate, gender));
   });
 });
 
