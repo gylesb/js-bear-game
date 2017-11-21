@@ -78,29 +78,30 @@ var Calc = exports.Calc = function () {
 var _calculator = require("./../js/calculator.js");
 
 $(document).ready(function () {
-  $("form#formOne").submit(function (event) {
+  $("#age-form").submit(function (event) {
     event.preventDefault();
 
     var userAge = $("input#userAge").val();
-    var userCalc = new _calculator.Calc(userAge);
-    var result = userCalc.ToSeconds();
+    var calc = new _calculator.Calc();
 
-    var ageInSeconds = calc.DateToSeconds(birthdate);
+    var AgeInSeconds = calc.AgeToSeconds(userAge);
     $('#results-seconds').text();
-    // $('#result').append("<li>" + "Your years on Earth = " + ageInSeconds + "seconds" + "</li>");
+  });
+
+  $('#user-form').submit(function (event) {
+    event.preventDefault();
 
     var birthdate = $("input#userBirthdate").val();
-    var calc = new _calculator.Calc(birthdate);
+    var gender = $('input:radio[name=gender]:checked').val();
+    var calc = new _calculator.Calc();
 
-    var earthAge = calc.earthAge(birthdate);
-    var marsAge = calc.marsAge(birthdate);
-    var mercuryAge = calc.mercuryAge(birthdate);
-    var venusAge = calc.venusAge(birthdate);
-    var jupiterAge = calc.jupiterAge(birthdate);
+    var EarthAge = calc.EarthAge(birthdate, gender);
+    var MarsAge = calc.MarsAge(birthdate, gender);
+    var MercuryAge = calc.MercuryAge(birthdate, gender);
+    var VenusAge = calc.VenusAge(birthdate, gender);
+    var JupiterAge = calc.JupiterAge(birthdate, gender);
 
     $('#results-earth').text();
-
-    // $('#results-earth').append("<li>" + "Your age in Earth years = " + earthAge + "</li>");
   });
 });
 

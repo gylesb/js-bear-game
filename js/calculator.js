@@ -22,19 +22,19 @@ export class Calc {
   }
 
   MercuryAge(date) {
-    return Math.round(100*(this.EarthAge(date) / .24))/100;
+    return Math.round(this.EarthAge(date) / .24)
   }
 
   VenusAge(date) {
-    return Math.round(100*(this.EarthAge(date) / .62))/100;
+    return Math.round(this.EarthAge(date) / .62);
   }
 
   MarsAge(date) {
-    return Math.round(100*(this.EarthAge(date) / 1.88))/100;
+    return Math.round(this.EarthAge(date) / 1.88);
   }
 
   JupiterAge(date) {
-    return Math.round(100*(this.EarthAge(date) / 11.86))/100;
+    return Math.round(this.EarthAge(date) / 11.86);
   }
 
   LifeExpectancy(gender) {
@@ -45,5 +45,21 @@ export class Calc {
       (gender !== "Male") {
       return averageEarthLife += 10;
     }
+  }
+
+  LifeMercury(gender) {
+    return Math.round(this.LifeExpectancy(gender) / 0.24);
+  }
+
+  LifeVenus(gender) {
+    return Math.round(this.LifeExpectancy(gender) / 0.62);
+  }
+
+  LifeMars(gender) {
+    return Math.round(this.LifeExpectancy(gender) / 1.88);
+  }
+
+  LifeJupiter(gender) {
+    return Math.round(this.LifeExpectancy(gender) / 11.86);
   }
 }
