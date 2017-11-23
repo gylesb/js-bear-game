@@ -6,9 +6,7 @@ $(document).ready(function () {
     let userAge = $("input#userAge").val();
     let calc = new Calc();
 
-    const AgeInSeconds = calc.AgeToSeconds(userAge);
-    console.log(AgeInSeconds);
-    $('#result-seconds').text();
+    $('#result-seconds').text(calc.AgeToSeconds(userAge));
   });
 
   $('#user-form').submit(function(event){
@@ -18,12 +16,6 @@ $(document).ready(function () {
     let gender = $('input:radio[name=gender]:checked').val();
     let calc = new Calc();
 
-    // const EarthAge = calc.EarthAge(birthdate, gender);
-    // const MarsAge = calc.MarsAge(birthdate, gender);
-    // const MercuryAge = calc.MercuryAge(birthdate, gender);
-    // const VenusAge = calc.VenusAge(birthdate, gender);
-    // const JupiterAge = calc.JupiterAge(birthdate, gender);
-
     $('#EarthAge').text(calc.EarthAge(birthdate));
     console.log(EarthAge);
     $('#MercuryAge').text(calc.MercuryAge(birthdate));
@@ -32,11 +24,13 @@ $(document).ready(function () {
     $('#MarsAge').text(calc.MarsAge(birthdate));
     $('#JupiterAge').text(calc.JupiterAge(birthdate));
 
-    $('#LifeExpectancy').text(calc.LifeExpectancy(birthdate, gender));
+    $('#LifeExpectancy').text(calc.LifeExpectancy(gender));
     $('#LifeMercury').text(calc.LifeMercury(birthdate, gender));
     $('#LifeVenus').text(calc.LifeVenus(birthdate, gender));
     $('#LifeMars').text(calc.LifeMars(birthdate, gender));
     $('#LifeJupiter').text(calc.LifeJupiter(birthdate, gender));
+
+    $("#results").show();
 
   });
 });

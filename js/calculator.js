@@ -39,27 +39,27 @@ export class Calc {
 
   LifeExpectancy(gender) {
     let averageEarthLife = 70;
-    if (gender == "Male") {
+    if (gender == "male") {
       return averageEarthLife -= 10;
     } else if
-      (gender !== "Male") {
+      (gender !== "male") {
       return averageEarthLife += 10;
     }
   }
 
-  LifeMercury(gender) {
+  LifeMercury() {
     return Math.round(this.LifeExpectancy(gender) / 0.24);
   }
 
-  LifeVenus(gender) {
+  LifeVenus() {
     return Math.round(this.LifeExpectancy(gender) / 0.62);
   }
 
-  LifeMars(gender) {
+  LifeMars() {
     return Math.round(this.LifeExpectancy(gender) / 1.88);
   }
 
-  LifeJupiter(gender) {
+  LifeJupiter() {
     return Math.round(this.LifeExpectancy(gender) / 11.86);
   }
 }

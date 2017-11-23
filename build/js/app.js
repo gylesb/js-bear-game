@@ -61,30 +61,30 @@ var Calc = exports.Calc = function () {
     key: "LifeExpectancy",
     value: function LifeExpectancy(gender) {
       var averageEarthLife = 70;
-      if (gender == "Male") {
+      if (gender == "male") {
         return averageEarthLife -= 10;
-      } else if (gender !== "Male") {
+      } else if (gender !== "male") {
         return averageEarthLife += 10;
       }
     }
   }, {
     key: "LifeMercury",
-    value: function LifeMercury(gender) {
+    value: function LifeMercury() {
       return Math.round(this.LifeExpectancy(gender) / 0.24);
     }
   }, {
     key: "LifeVenus",
-    value: function LifeVenus(gender) {
+    value: function LifeVenus() {
       return Math.round(this.LifeExpectancy(gender) / 0.62);
     }
   }, {
     key: "LifeMars",
-    value: function LifeMars(gender) {
+    value: function LifeMars() {
       return Math.round(this.LifeExpectancy(gender) / 1.88);
     }
   }, {
     key: "LifeJupiter",
-    value: function LifeJupiter(gender) {
+    value: function LifeJupiter() {
       return Math.round(this.LifeExpectancy(gender) / 11.86);
     }
   }]);
@@ -104,9 +104,7 @@ $(document).ready(function () {
     var userAge = $("input#userAge").val();
     var calc = new _calculator.Calc();
 
-    var AgeInSeconds = calc.AgeToSeconds(userAge);
-    console.log(AgeInSeconds);
-    $('#result-seconds').text();
+    $('#result-seconds').text(calc.AgeToSeconds(userAge));
   });
 
   $('#user-form').submit(function (event) {
@@ -116,12 +114,6 @@ $(document).ready(function () {
     var gender = $('input:radio[name=gender]:checked').val();
     var calc = new _calculator.Calc();
 
-    // const EarthAge = calc.EarthAge(birthdate, gender);
-    // const MarsAge = calc.MarsAge(birthdate, gender);
-    // const MercuryAge = calc.MercuryAge(birthdate, gender);
-    // const VenusAge = calc.VenusAge(birthdate, gender);
-    // const JupiterAge = calc.JupiterAge(birthdate, gender);
-
     $('#EarthAge').text(calc.EarthAge(birthdate));
     console.log(EarthAge);
     $('#MercuryAge').text(calc.MercuryAge(birthdate));
@@ -130,11 +122,13 @@ $(document).ready(function () {
     $('#MarsAge').text(calc.MarsAge(birthdate));
     $('#JupiterAge').text(calc.JupiterAge(birthdate));
 
-    $('#LifeExpectancy').text(calc.LifeExpectancy(birthdate, gender));
+    $('#LifeExpectancy').text(calc.LifeExpectancy(gender));
     $('#LifeMercury').text(calc.LifeMercury(birthdate, gender));
     $('#LifeVenus').text(calc.LifeVenus(birthdate, gender));
     $('#LifeMars').text(calc.LifeMars(birthdate, gender));
     $('#LifeJupiter').text(calc.LifeJupiter(birthdate, gender));
+
+    $("#results").show();
   });
 });
 
