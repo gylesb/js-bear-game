@@ -25,10 +25,11 @@ $(document).ready(function () {
     $('#JupiterAge').text(calc.JupiterAge(birthdate));
 
     $('#LifeExpectancy').text(calc.LifeExpectancy(gender));
-    $('#LifeMercury').text(calc.LifeMercury(birthdate, gender));
-    $('#LifeVenus').text(calc.LifeVenus(birthdate, gender));
-    $('#LifeMars').text(calc.LifeMars(birthdate, gender));
-    $('#LifeJupiter').text(calc.LifeJupiter(birthdate, gender));
+    $('#LifeMercury').text(calc.LifeMercury(gender, birthdate));
+    console.log(LifeMercury);
+    $('#LifeVenus').text(calc.LifeVenus(gender, birthdate));
+    $('#LifeMars').text(calc.LifeMars(gender, birthdate));
+    $('#LifeJupiter').text(calc.LifeJupiter(gender, birthdate));
 
     $("#results").show();
 

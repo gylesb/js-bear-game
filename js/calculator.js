@@ -47,19 +47,19 @@ export class Calc {
     }
   }
 
-  LifeMercury() {
-    return Math.round(this.LifeExpectancy(gender) / 0.24);
+  LifeMercury(gender, date) {
+    return Math.round(this.LifeExpectancy(gender) / .24) - Math.round(this.MercuryAge(date));
   }
 
-  LifeVenus() {
-    return Math.round(this.LifeExpectancy(gender) / 0.62);
+  LifeVenus(gender, date) {
+    return Math.round(this.LifeExpectancy(gender) / .62) - Math.round(this.VenusAge(date));
   }
 
-  LifeMars() {
-    return Math.round(this.LifeExpectancy(gender) / 1.88);
+  LifeMars(gender, date) {
+    return Math.round(this.LifeExpectancy(gender) / 1.88) - Math.round(this.MarsAge(date));
   }
 
-  LifeJupiter() {
-    return Math.round(this.LifeExpectancy(gender) / 11.86);
+  LifeJupiter(gender, date) {
+    return Math.round(this.LifeExpectancy(gender) / 11.86) - Math.round(this.JupiterAge(date));
   }
 }

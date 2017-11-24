@@ -69,23 +69,23 @@ var Calc = exports.Calc = function () {
     }
   }, {
     key: "LifeMercury",
-    value: function LifeMercury() {
-      return Math.round(this.LifeExpectancy(gender) / 0.24);
+    value: function LifeMercury(gender, date) {
+      return Math.round(this.LifeExpectancy(gender) / .24) - Math.round(this.MercuryAge(date));
     }
   }, {
     key: "LifeVenus",
-    value: function LifeVenus() {
-      return Math.round(this.LifeExpectancy(gender) / 0.62);
+    value: function LifeVenus(gender, date) {
+      return Math.round(this.LifeExpectancy(gender) / .62) - Math.round(this.VenusAge(date));
     }
   }, {
     key: "LifeMars",
-    value: function LifeMars() {
-      return Math.round(this.LifeExpectancy(gender) / 1.88);
+    value: function LifeMars(gender, date) {
+      return Math.round(this.LifeExpectancy(gender) / 1.88) - Math.round(this.MarsAge(date));
     }
   }, {
     key: "LifeJupiter",
-    value: function LifeJupiter() {
-      return Math.round(this.LifeExpectancy(gender) / 11.86);
+    value: function LifeJupiter(gender, date) {
+      return Math.round(this.LifeExpectancy(gender) / 11.86) - Math.round(this.JupiterAge(date));
     }
   }]);
 
@@ -123,10 +123,11 @@ $(document).ready(function () {
     $('#JupiterAge').text(calc.JupiterAge(birthdate));
 
     $('#LifeExpectancy').text(calc.LifeExpectancy(gender));
-    $('#LifeMercury').text(calc.LifeMercury(birthdate, gender));
-    $('#LifeVenus').text(calc.LifeVenus(birthdate, gender));
-    $('#LifeMars').text(calc.LifeMars(birthdate, gender));
-    $('#LifeJupiter').text(calc.LifeJupiter(birthdate, gender));
+    $('#LifeMercury').text(calc.LifeMercury(gender, birthdate));
+    console.log(LifeMercury);
+    $('#LifeVenus').text(calc.LifeVenus(gender, birthdate));
+    $('#LifeMars').text(calc.LifeMars(gender, birthdate));
+    $('#LifeJupiter').text(calc.LifeJupiter(gender, birthdate));
 
     $("#results").show();
   });
