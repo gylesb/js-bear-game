@@ -38,28 +38,72 @@ export class Calc {
   }
 
   LifeExpectancy(gender) {
-    let averageEarthLife = 70;
+    let averageEarthLife = 79;
     if (gender == "male") {
-      return averageEarthLife -= 10;
+      return averageEarthLife -= 3;
     } else if
       (gender !== "male") {
-      return averageEarthLife += 10;
+      return averageEarthLife += 5;
+    }
+  }
+
+  LifeEarth(gender, date) {
+    let age = Math.round(this.EarthAge(date));
+    let earthExp = Math.round(this.LifeExpectancy(gender));
+    if (age > earthExp)
+    {
+      return ("outlived your life expectancy and have 0");
+    }
+      else {
+      return earthExp - age;
     }
   }
 
   LifeMercury(gender, date) {
-    return Math.round(this.LifeExpectancy(gender) / .24) - Math.round(this.MercuryAge(date));
+    let age = Math.round(this.MercuryAge(date));
+    let mercuryExp = Math.round(this.LifeExpectancy(gender) / .24);
+    if (age > mercuryExp)
+    {
+      return ("outlived your life expectancy and have 0");
+    }
+      else {
+      return mercuryExp - age;
+    }
   }
 
   LifeVenus(gender, date) {
-    return Math.round(this.LifeExpectancy(gender) / .62) - Math.round(this.VenusAge(date));
+    let age = Math.round(this.VenusAge(date));
+    let venusExp = Math.round(this.LifeExpectancy(gender) / .62);
+    if (age > venusExp)
+    {
+      return ("outlived your life expectancy and have 0");
+    }
+      else {
+      return venusExp - age;
+    }
   }
 
   LifeMars(gender, date) {
-    return Math.round(this.LifeExpectancy(gender) / 1.88) - Math.round(this.MarsAge(date));
+    let age = Math.round(this.MarsAge(date));
+    let marsExp = Math.round(this.LifeExpectancy(gender) / 1.88);
+    if (age > marsExp)
+    {
+      return ("outlived your life expectancy and have 0");
+    }
+      else {
+      return marsExp - age;
+    }
   }
 
   LifeJupiter(gender, date) {
-    return Math.round(this.LifeExpectancy(gender) / 11.86) - Math.round(this.JupiterAge(date));
+    let age = Math.round(this.JupiterAge(date));
+    let jupiterExp = Math.round(this.LifeExpectancy(gender) / 11.86);
+    if (age > jupiterExp)
+    {
+      return ("outlived your life expectancy and have 0");
+    }
+      else {
+      return jupiterExp - age;
+    }
   }
 }

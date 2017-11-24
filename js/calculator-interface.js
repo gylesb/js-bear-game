@@ -25,6 +25,7 @@ $(document).ready(function () {
     $('#JupiterAge').text(calc.JupiterAge(birthdate));
 
     $('#LifeExpectancy').text(calc.LifeExpectancy(gender));
+    $('#LifeEarth').text(calc.LifeEarth(gender, birthdate));
     $('#LifeMercury').text(calc.LifeMercury(gender, birthdate));
     console.log(LifeMercury);
     $('#LifeVenus').text(calc.LifeVenus(gender, birthdate));

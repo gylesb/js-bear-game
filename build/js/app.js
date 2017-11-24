@@ -60,32 +60,67 @@ var Calc = exports.Calc = function () {
   }, {
     key: "LifeExpectancy",
     value: function LifeExpectancy(gender) {
-      var averageEarthLife = 70;
+      var averageEarthLife = 79;
       if (gender == "male") {
-        return averageEarthLife -= 10;
+        return averageEarthLife -= 3;
       } else if (gender !== "male") {
-        return averageEarthLife += 10;
+        return averageEarthLife += 5;
+      }
+    }
+  }, {
+    key: "LifeEarth",
+    value: function LifeEarth(gender, date) {
+      var age = Math.round(this.EarthAge(date));
+      var earthExp = Math.round(this.LifeExpectancy(gender));
+      if (age > earthExp) {
+        return "outlived your life expectancy and have 0";
+      } else {
+        return earthExp - age;
       }
     }
   }, {
     key: "LifeMercury",
     value: function LifeMercury(gender, date) {
-      return Math.round(this.LifeExpectancy(gender) / .24) - Math.round(this.MercuryAge(date));
+      var age = Math.round(this.MercuryAge(date));
+      var mercuryExp = Math.round(this.LifeExpectancy(gender) / .24);
+      if (age > mercuryExp) {
+        return "outlived your life expectancy and have 0";
+      } else {
+        return mercuryExp - age;
+      }
     }
   }, {
     key: "LifeVenus",
     value: function LifeVenus(gender, date) {
-      return Math.round(this.LifeExpectancy(gender) / .62) - Math.round(this.VenusAge(date));
+      var age = Math.round(this.VenusAge(date));
+      var venusExp = Math.round(this.LifeExpectancy(gender) / .62);
+      if (age > venusExp) {
+        return "outlived your life expectancy and have 0";
+      } else {
+        return venusExp - age;
+      }
     }
   }, {
     key: "LifeMars",
     value: function LifeMars(gender, date) {
-      return Math.round(this.LifeExpectancy(gender) / 1.88) - Math.round(this.MarsAge(date));
+      var age = Math.round(this.MarsAge(date));
+      var marsExp = Math.round(this.LifeExpectancy(gender) / 1.88);
+      if (age > marsExp) {
+        return "outlived your life expectancy and have 0";
+      } else {
+        return marsExp - age;
+      }
     }
   }, {
     key: "LifeJupiter",
     value: function LifeJupiter(gender, date) {
-      return Math.round(this.LifeExpectancy(gender) / 11.86) - Math.round(this.JupiterAge(date));
+      var age = Math.round(this.JupiterAge(date));
+      var jupiterExp = Math.round(this.LifeExpectancy(gender) / 11.86);
+      if (age > jupiterExp) {
+        return "outlived your life expectancy and have 0";
+      } else {
+        return jupiterExp - age;
+      }
     }
   }]);
 
@@ -123,6 +158,7 @@ $(document).ready(function () {
     $('#JupiterAge').text(calc.JupiterAge(birthdate));
 
     $('#LifeExpectancy').text(calc.LifeExpectancy(gender));
+    $('#LifeEarth').text(calc.LifeEarth(gender, birthdate));
     $('#LifeMercury').text(calc.LifeMercury(gender, birthdate));
     console.log(LifeMercury);
     $('#LifeVenus').text(calc.LifeVenus(gender, birthdate));
