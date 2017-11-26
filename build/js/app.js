@@ -140,6 +140,8 @@ $(document).ready(function () {
     var calc = new _calculator.Calc();
 
     $('#result-seconds').text(calc.AgeToSeconds(userAge));
+
+    $("#seconds").show();
   });
 
   $('#user-form').submit(function (event) {

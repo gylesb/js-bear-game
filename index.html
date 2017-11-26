@@ -12,7 +12,6 @@
 <body>
   <h1>Super Galactic Age Calculator<h1>
 
-    <div id="form-input">
       <form id="age-form">
         <div class="form-group">
           <label for="age">Enter your age:</label>
@@ -27,20 +26,21 @@
       </div>
       <br>
 
-      <form id="user-form" class="form-group">
-        <label for="birthdate">Enter your birthdate:</label>
-        <input id="userBirthdate" type="date"></input>
-        <h1>Select your gender:</h1>
-          <input id="gender" type="radio" name="gender" value="female">
-        <label>Female
-        </label>
-          <input type="radio" name="gender" value="male">
-        <label>Male
-        </label>
-        <br>
-        <button type="submit" class="btn btn-danger">Submit</button>
+      <form id="user-form">
+        <div class="form-group">
+          <label for="birthdate">Enter your birthdate:</label>
+          <input id="userBirthdate" type="date"></input>
+          <h1>Select your gender:</h1>
+            <input id="gender" type="radio" name="gender" value="female">
+          <label>Female
+          </label>
+            <input type="radio" name="gender" value="male">
+          <label>Male
+          </label>
+          <br>
+          <button type="submit" class="btn btn-danger">Submit</button>
+        </div>
       </form>
-    </div>
 
     <div id="results">
       <h2>Here are your results:</h2>

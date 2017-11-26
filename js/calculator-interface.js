@@ -7,6 +7,8 @@ $(document).ready(function () {
     let calc = new Calc();
 
     $('#result-seconds').text(calc.AgeToSeconds(userAge));
+    
+    $("#seconds").show();
   });
 
   $('#user-form').submit(function(event){
