@@ -44,26 +44,31 @@ describe('Calc', function () {
 
   it('should take a person’s gender and calculate their life expectancy.', function () {
     let calc = new Calc();
-    expect(calc.LifeExpectancy("Male")).toEqual(60);
+    expect(calc.LifeExpectancy("male")).toEqual(76);
   });
 
   it('should give a user their life expectancy on Mercury', function() {
     let calc = new Calc();
-    expect(calc.LifeMercury("Male")).toEqual(250)
+    expect(calc.LifeMercury("male", "08/08/1968")).toEqual(113)
   });
 
   it('should give a user their life expectancy on Venus', function() {
     let calc = new Calc();
-    expect(calc.LifeVenus("Male")).toEqual(97)
+    expect(calc.LifeVenus("male", "08/08/1968")).toEqual(44)
   });
 
   it('should give a user their life expectancy on Mars', function() {
     let calc = new Calc();
-    expect(calc.LifeMars("Male")).toEqual(32)
+    expect(calc.LifeMars("male", "08/08/1968")).toEqual(14)
   });
 
   it('should give a user their life expectancy on Jupiter', function() {
     let calc = new Calc();
-    expect(calc.LifeJupiter("Male")).toEqual(5)
+    expect(calc.LifeJupiter("male", "08/08/1968")).toEqual(2)
+  });
+
+  it('should tell if a user has outlived the life expectancy of a planet', function() {
+    let calc = new Calc();
+    expect(calc.LifeJupiter("male", "08/08/1937")).toEqual("outlived your life expectancy and have 0")
   });
 });
