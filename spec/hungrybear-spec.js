@@ -6,7 +6,7 @@ describe('HungryBear', function() {
   beforeEach(function() {
     fuzzy = new HungryBear("Fuzzy");
     jasmine.clock().install();
-    fuzzy.setHunger();
+    fuzzy.setLevelMed();
   });
 
   afterEach(function() {
@@ -37,11 +37,12 @@ describe('HungryBear', function() {
     expect(fuzzy.didYouGetEaten()).toEqual(true);
   });
 
-  it('should have a food level of ten if it is fed', function() {
-    jasmine.clock().tick(7001);
+  it('should have a food level of twelve if it is fed', function() {
+    jasmine.clock().tick(8000);
+    console.log("food level is: "+fuzzy.foodLevel);
     fuzzy.feed();
     console.log("food level is: "+fuzzy.foodLevel);
-    expect(fuzzy.foodLevel).toEqual(10);
+    expect(fuzzy.foodLevel).toEqual(12);
   });
 
   it('should not be able to feed the bear after being eaten', function() {
@@ -55,6 +56,14 @@ describe('HungryBear', function() {
     jasmine.clock().tick(12001);
     fuzzy.feed();
     expect(fuzzy.foodLevel).toEqual(0);
+  });
+
+  it('should increase healthLevel when sleepLevel increases',
+  function() {
+    fuzzy.healthLevel = 50;
+    fuzzy.sleepLevel = 5;
+    fuzzy.sleep();
+    expect(fuzzy.healthLevel).toEqual(51);
   });
 
 });
