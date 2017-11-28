@@ -58,12 +58,38 @@ describe('HungryBear', function() {
     expect(fuzzy.foodLevel).toEqual(0);
   });
 
-  it('should increase healthLevel when sleepLevel increases',
+  it('should increase healthLevel and sleepLevel when sleep is run',
   function() {
-    fuzzy.healthLevel = 50;
-    fuzzy.sleepLevel = 5;
     fuzzy.sleep();
     expect(fuzzy.healthLevel).toEqual(51);
+    expect(fuzzy.sleepLevel).toEqual(20);
   });
+
+  it('should decrease healthLevel, and increase shelterLevel and activityLevel when build is run',
+  function() {
+    fuzzy.build();
+    expect(fuzzy.healthLevel).toEqual(47);
+    expect(fuzzy.shelterLevel).toEqual(15);
+    expect(fuzzy.activityLevel).toEqual(11);
+  });
+
+  it('should switch difficulty after one minute of play',
+  function() {
+    fuzzy.foodLevel = 1000;
+    fuzzy.moodLevel = 1000;
+    fuzzy.sleepLevel = 1000;
+    fuzzy.activityLevel = 1000;
+    fuzzy.shelterLevel = 1000;
+    fuzzy.healthLevel = 5000;
+    fuzzy.difficultySwitchHard();
+    jasmine.clock().tick(121001);
+    expect(fuzzy.foodLevel).toEqual(878);
+    // expect(fuzzy.moodLevel).toEqual(860);
+    // expect(fuzzy.sleepLevel).toEqual(860);
+    // expect(fuzzy.activityLevel).toEqual(860);
+    // expect(fuzzy.shelterLevel).toEqual(860);
+    // expect(fuzzy.healthLevel).toEqual(4840);
+  })
+
 
 });

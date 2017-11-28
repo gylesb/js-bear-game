@@ -14,7 +14,7 @@ export class HungryBear {
     setInterval(() => {
       this.foodLevel--;
       this.sleepLevel--;
-    }, 1500);
+    }, 1000);
   }
 
   setLevelMed() {
@@ -34,28 +34,29 @@ export class HungryBear {
       this.sleepLevel--;
       this.activityLevel--;
       this.shelterLevel--;
-      this.healthLevel - 2;
-    }, 500);
+      this.healthLevel -= 2;
+    }, 1000);
   }
 
   survivalTime() {
     setTimeout(function(){
       alert("Congradulations you survived!");
-    }, 1800000);
+    }, 180000);
   }
 
   difficultySwitchMedium() {
     setTimeout(function(){
       alert("Good Job! Advance to medium level.");
       setLevelMed();
-    }, 600000);
+    }, 60000);
   }
 
   difficultySwitchHard() {
-    setTimeout(function(){
+    var bear = this;
+    setTimeout(function() {
       alert("Great! Advance to hard level.");
-      setLevelHard();
-    }, 600000);
+      bear.setLevelHard();
+    }, 120000);
   }
 
   didYouGetEaten() {
