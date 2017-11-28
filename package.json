@@ -8,6 +8,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-plugin-istanbul": "^4.1.5",
     "babel-preset-es2015": "^6.24.1",
     "babelify": "^7.3.0",
@@ -43,5 +45,13 @@
     "istanbul": "^0.4.5",
     "istanbul-instrumenter-loader": "^3.0.0"
   },
-  "description": ""
+  "description": "This App determines a user’s age based on a planet’s solar years. A solar year lasts 365 days on planet Earth. However, the length of a solar year varies from planet to planet. For instance, a solar year on Mercury lasts 88 days.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcusparmentier/Hungry-Bear-advJS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marcusparmentier/Hungry-Bear-advJS/issues"
+  },
+  "homepage": "https://github.com/marcusparmentier/Hungry-Bear-advJS#readme"
 }

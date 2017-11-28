@@ -1,8 +1,9 @@
-var istanbul = require('browserify-istanbul');
+// Karma configuration
+// Generated on Tue Nov 28 2017 13:15:55 GMT-0800 (PST)
 
-module.exports = function (config) {
+module.exports = function(config) {
   config.set({
-    basePath: './',
+    basePath: '',
     frameworks: ['jquery-3.2.1', 'jasmine', 'browserify'],
     files: [
       'js/*.js',
@@ -11,29 +12,29 @@ module.exports = function (config) {
     exclude: [
     ],
     preprocessors: {
-      'js/*.js': ['browserify'],
+      'js/*.js': [ 'browserify'],
       'spec/*.js': ['browserify'],
-      './build/js/*.js': ['coverage'],
     },
     plugins: [
       'karma-jquery',
       'karma-browserify',
       'karma-jasmine',
       'karma-chrome-launcher',
-      'karma-jasmine-html-reporter',
-      'karma-coverage',
+      'karma-jasmine-html-reporter'
     ],
+
     browserify: {
       debug: true,
-      transform: [['babelify', { presets: ['es2015'], }]],
+      transform: [ [ 'babelify', {presets: ["es2015"]} ] ]
     },
-    reporters: ['progress', 'kjhtml', 'coverage'],
+
+    reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false,
-    concurrency: Infinity,
-  });
-};
+    concurrency: Infinity
+  })
+}
